@@ -17,14 +17,14 @@
 '''The setup and build script for the python-twitter library.'''
 
 __author__ = 'python-twitter@googlegroups.com'
-__version__ = '1.1.6'
+__version__ = '2.0'
 
 
 # The base package metadata to be used by both distutils and setuptools
 METADATA = dict(
   name = "python-twitter",
   version = __version__,
-  py_modules = ['twitter'],
+  packages = ['twitter'],
   author='The Python-Twitter Developers',
   author_email='python-twitter@googlegroups.com',
   description='A Python wrapper around the Twitter API',
@@ -65,8 +65,9 @@ def Main():
     METADATA.update(SETUPTOOLS_METADATA)
     setuptools.setup(**METADATA)
   except ImportError:
-    print("Could not import setuptools, using distutils")
-    print("NOTE: You will need to install dependencies manualy" )
+    import sys
+    sys.stderr.write("Could not import setuptools, using distutils")
+    sys.stderr.write("NOTE: You will need to install dependencies manualy")
     import distutils.core
     distutils.core.setup(**METADATA)
 
