@@ -33,7 +33,7 @@ except ImportError:
       # Google App Engine
       from django.utils import simplejson
     except ImportError:
-      raise ImportError, "Unable to load a json library"
+      raise ImportError("Unable to load a json library")
 # parse_qsl moved to urlparse module in v2.6
 try:
   from urlparse import parse_qsl, parse_qs

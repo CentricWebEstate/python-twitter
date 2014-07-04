@@ -181,9 +181,9 @@ class Api(object):
 
     if consumer_key is not None and (access_token_key is None or
                                      access_token_secret is None):
-      print >> sys.stderr, 'Twitter now requires an oAuth Access Token for API calls.'
-      print >> sys.stderr, 'If your using this library from a command line utility, please'
-      print >> sys.stderr, 'run the included get_access_token.py tool to generate one.'
+      print('Twitter now requires an oAuth Access Token for API calls.', file=sys.stderr)
+      print('If your using this library from a command line utility, please', file=sys.stderr)
+      print('run the included get_access_token.py tool to generate one.', file=sys.stderr)
 
       raise TwitterError('Twitter requires oAuth Access Token for all API access')
 
@@ -767,7 +767,7 @@ class Api(object):
         if not isinstance(lang, str):
           raise TwitterError("'lang' should be string instance")
         parameters['lang'] = lang
-    print 'request_url', request_url, parameters
+    print('request_url', request_url, parameters)
     json = self._RequestUrl(request_url, 'GET', data=parameters)
     data = self._ParseAndCheckTwitter(json.content)
     return data
@@ -2333,7 +2333,7 @@ class Api(object):
       parameters['include_entities'] = True
     json = self._RequestUrl(url, 'GET', data=data)
     data = self._ParseAndCheckTwitter(json.content)
-    print data
+    print(data)
     return User.NewFromJsonDict(data)
 
   def GetSubscriptions(self, user_id=None, screen_name=None, count=20, cursor=-1):

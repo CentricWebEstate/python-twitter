@@ -62,7 +62,7 @@ class _FileCache(object):
              os.getenv('USERNAME') or \
              os.getlogin() or \
              'nobody'
-    except (AttributeError, IOError, OSError), e:
+    except (AttributeError, IOError, OSError) as e:
       return 'nobody'
 
   def _GetTmpCachePath(self):
