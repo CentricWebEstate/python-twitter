@@ -1568,7 +1568,7 @@ class Api(object):
     json = self._RequestUrl(url, 'GET', data=parameters)
     try:
       data = self._ParseAndCheckTwitter(json.content)
-    except TwitterError, e:
+    except TwitterError as e:
         _, e, _ = sys.exc_info()
         t = e.args[0]
         if len(t) == 1 and ('code' in t[0]) and (t[0]['code'] == 34):
