@@ -170,12 +170,12 @@ class Api(object):
     self._InitializeDefaultParameters()
 
     if base_url is None:
-      self.base_url = 'https://api.twitter.com/'
+      self.base_url = 'https://api.twitter.com/1.1/'
     else:
       self.base_url = base_url
       
     if stream_url is None:
-      self.stream_url = 'https://stream.twitter.com/'
+      self.stream_url = 'https://stream.twitter.com/1.1/'
     else:
       self.stream_url = stream_url
 
